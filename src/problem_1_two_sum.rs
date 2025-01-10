@@ -35,11 +35,28 @@ Constraints:
  
 Follow-up: Can you come up with an algorithm that is less than O(n2) time complexity? 
 */
-/*
+
+use crate::Solution;
+
+use std::{collections::HashMap, vec};
 
 impl Solution {
     pub fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> {
-        
+        let mut h_map: HashMap<i32, usize> = HashMap::new();
+
+        for (idx, numb) in nums.into_iter().enumerate() {
+            if let Some(&idx_2) = h_map.get(&(&target - numb)) {
+                return vec![idx_2 as i32, idx as i32];
+            }
+            h_map.insert( numb, idx);
+        }
+        vec![0,0]
     }
 }
-*/
+
+#[test]
+pub fn test_two_sum() {
+    assert_eq!(Solution::two_sum(vec![2,7,11,15], 9), [0,1]);    
+    assert_eq!(Solution::two_sum(vec![3,2,4], 6), [1,2]);
+    assert_eq!(Solution::two_sum(vec![3,3], 6), [0,1]);    
+}
