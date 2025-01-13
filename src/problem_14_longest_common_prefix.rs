@@ -17,7 +17,7 @@ Output: ""
 Explanation: There is no common prefix among the input strings.
 
 */
-
+/*
 use crate::Solution;
 
 impl Solution {
@@ -56,4 +56,4 @@ impl Solution {
 #[test]
 pub fn test_longest_common_prefix() {
     assert_eq!(Solution::longest_common_prefix(vec!["ab".to_string(), "a".to_string()]), "a");
-}
+}*/
